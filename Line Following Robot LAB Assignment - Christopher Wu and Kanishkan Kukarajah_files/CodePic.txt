@@ -1,0 +1,31 @@
+main:
+'if right sensor sees black line is detected, left motor is on
+if input4 = 1 then gosub leftmotoron
+'if right sensor doesn't see black isn't detected, left motor is off
+if input4 = 0 then gosub leftmotoroff
+'if left sensor sees black line is detected, right motor is on
+if input5 = 1 then gosub rightmotoron
+'if left sensor  doesn't see black isn't detected, right motor is off
+if input5 = 0 then gosub rightmotoroff
+
+goto main
+
+'left motor on by making selected pins high
+leftmotoron:
+high 7,6,5,4
+return
+
+'left motor off by making selected pins pins low
+leftmotoroff:
+low 7,6,5,4
+return
+
+'right motor on by making selected pins high
+rightmotoron:
+high 0,1,2,3
+return
+
+'right motor off by making selected pins pins low
+rightmotoroff:
+low 0,1,2,3
+return
